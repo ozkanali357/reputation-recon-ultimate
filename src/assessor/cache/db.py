@@ -21,8 +21,12 @@ def get_connection(readonly: bool = False):
         conn = sqlite3.connect(uri, uri=True)
     else:
         conn = sqlite3.connect(_DB_PATH)
+
     conn.row_factory = sqlite3.Row
-    _ensure_schema(conn)
+
+    if not readonly:
+        _ensure_schema(conn)
+
     try:
         yield conn
     finally:
@@ -58,6 +62,8 @@ def get_cached_content(
     max_age_seconds: Optional[int] = None,
     snapshot_id: Optional[str] = None,
 ) -> Optional[Dict[str, Any]]:
+    if not _DB_PATH.exists():
+        return None
     query = "SELECT * FROM content WHERE url = ?"
     params = [url]
 
