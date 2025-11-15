@@ -1,0 +1,75 @@
+{
+  "snapshot_id": "demo_snapshot",
+  "created_at": "2023-10-01T12:00:00Z",
+  "dependency_lock": {
+    "python": "3.11",
+    "packages": {
+      "httpx": "0.23.0",
+      "pydantic": "1.10.2",
+      "typer": "0.4.0",
+      "fastapi": "0.95.0",
+      "pytest": "7.2.0"
+    }
+  },
+  "content": {
+    "url": "https://example.com/product",
+    "sha256": "abc123def456...",
+    "retrieved_at": "2023-10-01T12:00:00Z",
+    "facts": [
+      {
+        "claim_id": "1",
+        "category": "Security",
+        "text": "The product has no known vulnerabilities.",
+        "score_contrib": 10,
+        "confidence": 0.9
+      },
+      {
+        "claim_id": "2",
+        "category": "Compliance",
+        "text": "The product is SOC 2 compliant.",
+        "score_contrib": 8,
+        "confidence": 0.85
+      }
+    ],
+    "evidence": [
+      {
+        "claim_id": "1",
+        "url": "https://example.com/vuln-report",
+        "source_type": "vendor",
+        "excerpt": "No known vulnerabilities reported.",
+        "retrieved_at": "2023-10-01T12:00:00Z",
+        "parser_id": "vendor_posture"
+      },
+      {
+        "claim_id": "2",
+        "url": "https://example.com/compliance-report",
+        "source_type": "independent",
+        "excerpt": "SOC 2 compliance verified.",
+        "retrieved_at": "2023-10-01T12:00:00Z",
+        "parser_id": "compliance"
+      }
+    ],
+    "cve_stats": {
+      "year_bins": {
+        "2021": {
+          "open_count": 0,
+          "critical_count": 0,
+          "last_seen": "2021-12-31",
+          "kev_hits": 0
+        },
+        "2022": {
+          "open_count": 1,
+          "critical_count": 0,
+          "last_seen": "2022-11-30",
+          "kev_hits": 0
+        },
+        "2023": {
+          "open_count": 0,
+          "critical_count": 0,
+          "last_seen": "2023-09-30",
+          "kev_hits": 0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+exposure:
+  weight: 30
+  description: "Risk associated with known vulnerabilities and exposure levels."
+controls:
+  weight: 20
+  description: "Effectiveness of security controls in place."
+vendor_posture:
+  weight: 15
+  description: "Assessment of the vendor's security practices and policies."
+compliance:
+  weight: 15
+  description: "Adherence to relevant compliance standards and regulations."
+incidents:
+  weight: 10
+  description: "History of security incidents and breaches."
+data_handling:
+  weight: 10
+  description: "Practices related to data management and privacy."

@@ -1,0 +1,21 @@
+category: 
+  - name: "File Archivers"
+    alternatives:
+      - name: "7-Zip"
+        description: "A free and open-source file archiver with a high compression ratio."
+      - name: "PeaZip"
+        description: "A free file manager and archive manager for Windows and Linux."
+      - name: "Bandizip"
+        description: "A free, fast, and lightweight file archiver."
+  - name: "Remote Desktop Tools"
+    alternatives:
+      - name: "AnyDesk"
+        description: "A remote desktop application that allows users to connect to a computer remotely."
+      - name: "TeamViewer"
+        description: "A proprietary software for remote control, desktop sharing, online meetings, and file transfer."
+  - name: "Password Managers"
+    alternatives:
+      - name: "LastPass"
+        description: "A password manager that stores encrypted passwords online."
+      - name: "1Password"
+        description: "A password manager that provides a secure vault for storing passwords and sensitive information."

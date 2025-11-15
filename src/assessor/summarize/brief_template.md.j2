@@ -1,0 +1,40 @@
+# Brief Summary Template
+
+# Product Assessment Summary
+
+## Product Name: {{ product_name }}
+## Vendor: {{ vendor_name }}
+## Category: {{ category }}
+
+### Overview
+{{ overview }}
+
+### Key Findings
+- **Trust Score:** {{ trust_score }} (Confidence: {{ confidence }})
+- **Exposure:** {{ exposure }}
+- **Controls:** {{ controls }}
+- **Vendor Posture:** {{ vendor_posture }}
+- **Compliance:** {{ compliance }}
+- **Incidents:** {{ incidents }}
+- **Data Handling:** {{ data_handling }}
+
+### Evidence
+#### Claims and Supporting Evidence
+{% for claim in claims %}
+- **Claim:** {{ claim.text }}
+  - **Score Contribution:** {{ claim.score_contrib }}
+  - **Confidence:** {{ claim.confidence }}
+  - **Evidence:**
+    {% for evidence in claim.evidence %}
+    - [{{ evidence.source_type }}] {{ evidence.url }} (Retrieved at: {{ evidence.retrieved_at }}) - "{{ evidence.excerpt }}"
+    {% endfor %}
+{% endfor %}
+
+### Recommendations
+- **Safer Alternatives:**
+{% for alternative in alternatives %}
+- {{ alternative }}
+{% endfor %}
+
+### Conclusion
+{{ conclusion }}

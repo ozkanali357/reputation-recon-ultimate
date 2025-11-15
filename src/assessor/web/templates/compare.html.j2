@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison View</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Product Comparison</h1>
+    </header>
+    <main>
+        <section id="comparison">
+            <h2>Comparison Results</h2>
+            <div class="comparison-cards">
+                {% for product in products %}
+                <div class="card">
+                    <h3>{{ product.name }}</h3>
+                    <p>Vendor: {{ product.vendor }}</p>
+                    <p>Category: {{ product.category }}</p>
+                    <p>Trust Score: {{ product.trust_score }}</p>
+                    <p>Risk Score: {{ product.risk_score }}</p>
+                    <a href="{{ product.details_url }}">View Details</a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <section id="alternatives">
+            <h2>Safer Alternatives</h2>
+            <ul>
+                {% for alternative in alternatives %}
+                <li>{{ alternative }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; {{ current_year }} WithSecure Assessor</p>
+    </footer>
+</body>
+</html>

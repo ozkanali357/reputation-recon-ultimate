@@ -1,0 +1,56 @@
+{
+  "cisa_kev": [
+    {
+      "id": "CVE-2021-34527",
+      "name": "PrintNightmare",
+      "description": "A remote code execution vulnerability in the Windows Print Spooler service.",
+      "cvss": {
+        "baseScore": 8.8,
+        "vectorString": "AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "publishedDate": "2021-07-01T00:00:00Z",
+      "lastModifiedDate": "2021-07-02T00:00:00Z",
+      "impact": {
+        "confidentiality": "High",
+        "integrity": "High",
+        "availability": "High"
+      },
+      "references": [
+        {
+          "url": "https://www.cisa.gov/uscert/ncas/current-activity/2021/07/01/cisa-releases-emergency-directive-21-03",
+          "description": "CISA Emergency Directive"
+        },
+        {
+          "url": "https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2021-34527",
+          "description": "Microsoft Security Response Center"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2021-33742",
+      "name": "Windows DNS Server",
+      "description": "A remote code execution vulnerability in Windows DNS Server.",
+      "cvss": {
+        "baseScore": 7.5,
+        "vectorString": "AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+      },
+      "publishedDate": "2021-06-08T00:00:00Z",
+      "lastModifiedDate": "2021-06-09T00:00:00Z",
+      "impact": {
+        "confidentiality": "High",
+        "integrity": "High",
+        "availability": "None"
+      },
+      "references": [
+        {
+          "url": "https://www.cisa.gov/uscert/ncas/current-activity/2021/06/08/cisa-releases-emergency-directive-21-02",
+          "description": "CISA Emergency Directive"
+        },
+        {
+          "url": "https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2021-33742",
+          "description": "Microsoft Security Response Center"
+        }
+      ]
+    }
+  ]
+}

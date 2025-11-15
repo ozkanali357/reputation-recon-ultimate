@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "withsecure-assessor"
+version = "0.1.0"
+description = "A deterministic, source-backed assessor for entity resolution and security posture synthesis."
+authors = ["Your Name <youremail@example.com>"]
+license = "MIT"
+packages = [{ include = "assessor", from = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<4.0"
+httpx = "^0.23.0"
+pydantic = "^1.10.0"
+typer = "^0.4.0"
+fastapi = "^0.95.0"
+jinja2 = "^3.1.0"
+pytest = "^7.2.0"
+
+[tool.poetry.scripts]
+assessor = "assessor.cli.main:app"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
