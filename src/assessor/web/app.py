@@ -1,15 +1,12 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from assessor.web.routes import compare
+from flask import Flask
+from flask_cors import CORS
+from assessor.web.api import api
 
-app = FastAPI()
+app = Flask(__name__)
+CORS(app)  # Enable React frontend
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Register API blueprint
+app.register_blueprint(api)
 
-app.include_router(compare.router)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)

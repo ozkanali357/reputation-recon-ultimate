@@ -1,21 +1,116 @@
-category: 
-  - name: "File Archivers"
-    alternatives:
-      - name: "7-Zip"
-        description: "A free and open-source file archiver with a high compression ratio."
-      - name: "PeaZip"
-        description: "A free file manager and archive manager for Windows and Linux."
-      - name: "Bandizip"
-        description: "A free, fast, and lightweight file archiver."
-  - name: "Remote Desktop Tools"
-    alternatives:
-      - name: "AnyDesk"
-        description: "A remote desktop application that allows users to connect to a computer remotely."
-      - name: "TeamViewer"
-        description: "A proprietary software for remote control, desktop sharing, online meetings, and file transfer."
-  - name: "Password Managers"
-    alternatives:
-      - name: "LastPass"
-        description: "A password manager that stores encrypted passwords online."
-      - name: "1Password"
-        description: "A password manager that provides a secure vault for storing passwords and sensitive information."
+"File archiver":
+  - product: "7-Zip"
+    vendor: "Igor Pavlov"
+    homepage: "https://www.7-zip.org/"
+    open_source: true
+    fewer_cves: true
+  - product: "PeaZip"
+    vendor: "Giorgio Tani"
+    homepage: "https://peazip.github.io/"
+    open_source: true
+
+"Password Manager":
+  - product: "1Password"
+    vendor: "AgileBits"
+    homepage: "https://1password.com/"
+    enterprise_support: true
+    compliance: "SOC 2 Type II, ISO 27001"
+    active_psirt: true
+  - product: "Bitwarden"
+    vendor: "Bitwarden Inc."
+    homepage: "https://bitwarden.com/"
+    open_source: true
+    enterprise_support: true
+    compliance: "SOC 2 Type II"
+
+"Remote Desktop":
+  - product: "TeamViewer"
+    vendor: "TeamViewer GmbH"
+    homepage: "https://www.teamviewer.com/"
+    enterprise_support: true
+    compliance: "ISO 27001, SOC 2"
+    active_psirt: true
+  - product: "AnyDesk"
+    vendor: "AnyDesk Software GmbH"
+    homepage: "https://anydesk.com/"
+    enterprise_support: true
+
+"Video Conferencing":
+  - product: "Zoom"
+    vendor: "Zoom Video Communications"
+    homepage: "https://zoom.us/"
+    enterprise_support: true
+    compliance: "SOC 2, ISO 27001, HIPAA"
+    active_psirt: true
+  - product: "Microsoft Teams"
+    vendor: "Microsoft"
+    homepage: "https://www.microsoft.com/teams"
+    enterprise_support: true
+    compliance: "SOC 2, ISO 27001, FedRAMP"
+
+"File Transfer":
+  - product: "WinSCP"
+    vendor: "Martin Prikryl"
+    homepage: "https://winscp.net/"
+    open_source: true
+    fewer_cves: true
+  - product: "FileZilla"
+    vendor: "Tim Kosse"
+    homepage: "https://filezilla-project.org/"
+    open_source: true
+
+"Encryption":
+  - product: "VeraCrypt"
+    vendor: "IDRIX"
+    homepage: "https://veracrypt.fr/"
+    open_source: true
+    rationale: "Open-source with independent security audits; Cross-platform support"
+
+  - product: "BitLocker"
+    vendor: "Microsoft"
+    homepage: "https://docs.microsoft.com/windows/security/bitlocker"
+    enterprise_support: true
+    compliance: "FIPS 140-2, SOC 2"
+    rationale: "Enterprise-grade encryption integrated with Windows; FIPS certified"
+
+"Security Software":
+  - product: "Microsoft Defender"
+    vendor: "Microsoft"
+    homepage: "https://www.microsoft.com/defender"
+    enterprise_support: true
+    compliance: "SOC 2, ISO 27001"
+    rationale: "Built-in Windows protection with enterprise management; Zero-cost licensing"
+
+  - product: "CrowdStrike Falcon"
+    vendor: "CrowdStrike"
+    homepage: "https://www.crowdstrike.com/"
+    enterprise_support: true
+    compliance: "SOC 2, FedRAMP, ISO 27001"
+    rationale: "Industry-leading EDR with 24/7 threat hunting; Used by Fortune 500"
+
+"Team Collaboration":
+  - product: "Slack"
+    vendor: "Slack Technologies"
+    homepage: "https://slack.com/"
+    enterprise_support: true
+    compliance: "SOC 2, ISO 27001, FedRAMP"
+    rationale: "Leading team collaboration platform; Extensive compliance certifications"
+
+  - product: "Microsoft Teams"
+    vendor: "Microsoft"
+    homepage: "https://www.microsoft.com/teams"
+    enterprise_support: true
+    compliance: "SOC 2, ISO 27001, FedRAMP, HIPAA"
+    rationale: "Enterprise-grade with Microsoft 365 integration; Best-in-class compliance"
+
+"Graphics Editor":
+  - product: "GIMP"
+    vendor: "GIMP Team"
+    homepage: "https://www.gimp.org/"
+    open_source: true
+    rationale: "Industry-standard open-source image editor; Cross-platform"
+
+  - product: "Affinity Photo"
+    vendor: "Serif"
+    homepage: "https://affinity.serif.com/photo/"
+    rationale: "Professional photo editing without subscription; One-time purchase"

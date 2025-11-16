@@ -1,47 +1,38 @@
-from typing import List, Dict
-from pydantic import BaseModel
-from datetime import datetime
+from typing import Any, Dict
 
-class Evidence(BaseModel):
-    claim_id: str
-    url: str
-    source_type: str
-    excerpt: str
-    retrieved_at: datetime
-    parser_id: str
-
-class Claim(BaseModel):
-    id: str
-    product_id: str
-    category: str
-    text: str
-    score_contrib: float
-    confidence: float
-
-class Summary(BaseModel):
-    claims: List[Claim]
-    evidences: List[Evidence]
-
-def generate_summary(claims: List[Claim], evidences: List[Evidence]) -> Summary:
-    return Summary(claims=claims, evidences=evidences)
-
-def format_summary(summary: Summary) -> str:
-    formatted = "Summary Report\n\n"
-    for claim in summary.claims:
-        formatted += f"Claim ID: {claim.id}\n"
-        formatted += f"Product ID: {claim.product_id}\n"
-        formatted += f"Category: {claim.category}\n"
-        formatted += f"Text: {claim.text}\n"
-        formatted += f"Score Contribution: {claim.score_contrib}\n"
-        formatted += f"Confidence: {claim.confidence}\n\n"
+def generate_brief(entity: Dict[str, Any], signals: Dict[str, Any], score: Dict[str, Any]) -> str:
+    """Generate a concise CISO-ready brief."""
+    vendor = entity.get("vendor", "Unknown")
+    product = entity.get("product", "Unknown")
+    category = entity.get("category", "Unknown")
+    homepage = entity.get("homepage", "N/A")
     
-    formatted += "Evidences:\n"
-    for evidence in summary.evidences:
-        formatted += f"Claim ID: {evidence.claim_id}\n"
-        formatted += f"URL: {evidence.url}\n"
-        formatted += f"Source Type: {evidence.source_type}\n"
-        formatted += f"Excerpt: {evidence.excerpt}\n"
-        formatted += f"Retrieved At: {evidence.retrieved_at}\n"
-        formatted += f"Parser ID: {evidence.parser_id}\n\n"
+    cve_stats = signals.get("nvd_cves", [])
+    kev_count = sum(1 for cve in cve_stats if cve.get("in_kev"))
+    critical_count = sum(1 for cve in cve_stats if cve.get("severity") == "CRITICAL")
     
-    return formatted.strip()
+    brief = f"""
+# Security Assessment: {product}
+
+**Vendor:** {vendor}  
+**Category:** {category}  
+**Homepage:** {homepage}  
+**Trust Score:** {score["total_score"]}/100 (Confidence: {score["confidence"]:.1%})
+
+## Summary
+{product} is a {category} tool by {vendor}. Based on available evidence:
+- **CVE Exposure:** {len(cve_stats)} total CVEs, {critical_count} critical, {kev_count} in CISA KEV.
+- **Controls:** {score["components"]["controls"]["rationale"]}
+- **Vendor Posture:** {score["components"]["vendor"]["rationale"]}
+- **Compliance:** {score["components"]["compliance"]["rationale"]}
+
+## Risk Assessment
+{score["components"]["exposure"]["rationale"]}
+
+## Recommendation
+{"⚠️ High-risk due to KEV presence. Consider alternatives." if kev_count > 0 else "✅ Moderate risk. Review controls before deployment."}
+
+---
+*Generated with deterministic evidence. See citations for sources.*
+"""
+    return brief.strip()

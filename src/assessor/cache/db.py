@@ -104,3 +104,18 @@ def record_fact(
             (content_id, claim, parser_id, source_type, json.dumps(payload), snapshot_id),
         )
         return cur.lastrowid
+    
+def get_assessment_history(limit=10):
+    """Retrieve recent assessments for UI history"""
+    conn = get_connection()
+    cursor = conn.cursor()
+    
+    cursor.execute("""
+        SELECT assessment_data, created_at 
+        FROM snapshots 
+        ORDER BY created_at DESC 
+        LIMIT ?
+    """, (limit,))
+    
+    rows = cursor.fetchall()
+    return [json.loads(row[0]) for row in rows]
